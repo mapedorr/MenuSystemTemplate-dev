@@ -21,6 +21,12 @@ namespace MenuSystem
 		[SerializeField]
 		CreditsMenu _creditsMenuPrefab;
 
+		[SerializeField]
+		GameMenu _gameMenuPrefab;
+
+		[SerializeField]
+		PauseMenu _pauseMenuPrefab;
+
 		// stack of opened menus
 		Stack<Menu> _menusStack = new Stack<Menu> ();
 		// container for all the menus (to keep things organized in the hierarchy)
@@ -52,7 +58,7 @@ namespace MenuSystem
 		}
 
 		/// <summary>
-		/// Create instances of all of the linked menus.
+		/// Create instances of all the linked menus.
 		/// </summary>
 		void InitializeMenus ()
 		{
@@ -68,7 +74,9 @@ namespace MenuSystem
 			Menu[] linkedMenus = {
 				_mainMenuPrefab,
 				_settingsMenuPrefab,
-				_creditsMenuPrefab
+				_creditsMenuPrefab,
+				_gameMenuPrefab,
+				_pauseMenuPrefab
 			};
 
 			// instantiate each of the linked menus

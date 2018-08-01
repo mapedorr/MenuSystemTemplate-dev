@@ -285,6 +285,10 @@ MonoBehaviour:
     type: 2}
   _creditsMenuPrefab: {fileID: 114889315323109426, guid: 6f503b278b51d03488787bfc3e847563,
     type: 2}
+  _gameMenuPrefab: {fileID: 114539546384895250, guid: 0e72c3eeeb3aebf4989ed4e956d4a61a,
+    type: 2}
+  _pauseMenuPrefab: {fileID: 114425852568208330, guid: f0d7954bde7654b45b004602ef787aa6,
+    type: 2}
 --- !u!4 &1808456876
 Transform:
   m_ObjectHideFlags: 0
