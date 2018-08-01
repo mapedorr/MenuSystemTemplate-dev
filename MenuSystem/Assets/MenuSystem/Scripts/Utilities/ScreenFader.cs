@@ -36,7 +36,7 @@ namespace Utilities
 		/// Sets the alpha value for all the UI elements in the array.
 		/// </summary>
 		/// <param name="targetAlpha">The value to set on the alpha property.</param>
-		void SetAlpha (float targetAlpha)
+		protected void SetAlpha (float targetAlpha)
 		{
 			foreach (MaskableGraphic uiElement in _uiElementsToFade)
 			{

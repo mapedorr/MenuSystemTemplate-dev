@@ -14,7 +14,7 @@ namespace MenuSystem
 		/// <summary>
 		/// Awake is called when the script instance is being loaded.
 		/// </summary>
-		protected virtual void Awake ()
+		public virtual void Awake ()
 		{
 			if (_instance != null)
 			{
