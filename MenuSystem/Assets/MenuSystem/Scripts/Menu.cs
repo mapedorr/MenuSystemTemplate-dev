@@ -37,11 +37,13 @@ namespace MenuSystem
 		/// <summary>
 		/// Opens the menu itself.
 		/// </summary>
-		protected static void Open ()
+		public static void Open ()
 		{
 			// TODO: add a block of code for instancing the menu if there's no
 			// an instance of it
 
+			Debug.Log ("Main Menu instance " + MenuManager.Instance);
+			Debug.Log ("Menu instance " + Instance);
 			if (MenuManager.Instance != null && Instance != null)
 			{
 				MenuManager.Instance.OpenMenu (Instance);
@@ -51,7 +53,7 @@ namespace MenuSystem
 		/// <summary>
 		/// Closes the menu itself.
 		/// </summary>
-		protected static void Close ()
+		public static void Close ()
 		{
 			if (Instance == null)
 			{

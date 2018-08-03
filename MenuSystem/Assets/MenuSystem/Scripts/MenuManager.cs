@@ -9,7 +9,8 @@ namespace MenuSystem
 	public class MenuManager : MonoBehaviour
 	{
 		// ═════════════════════════════════════════════════════════ PROPERTIES ════
-		public static MenuManager Instance { get; private set; }
+		static MenuManager _instance;
+		public static MenuManager Instance { get { return _instance; } }
 
 		// ═══════════════════════════════════════════════════════════ PRIVATES ════
 		[SerializeField]
@@ -38,13 +39,14 @@ namespace MenuSystem
 		/// </summary>
 		void Awake ()
 		{
-			if (Instance != null)
+			if (_instance != null)
 			{
+				Debug.Log ("Suite-pee");
 				Destroy (gameObject);
 			}
 			else
 			{
-				Instance = this;
+				_instance = this;
 
 				// initialize all the menus linked to the manager
 				// TODO: this should be optional. Developers should be able to choose if
@@ -53,7 +55,18 @@ namespace MenuSystem
 				InitializeMenus ();
 
 				// make the MenuManager to persist between scenes
-				DontDestroyOnLoad (gameObject);
+				DontDestroyOnLoad (this.gameObject);
+			}
+		}
+
+		/// <summary>
+		/// This function is called when the MonoBehaviour will be destroyed.
+		/// </summary>
+		void OnDestroy ()
+		{
+			if (_instance == this)
+			{
+				_instance = null;
 			}
 		}
 
@@ -128,14 +141,6 @@ namespace MenuSystem
 
 			throw new MissingReferenceException ("Prefab not found for type " + typeof (T));
 		} */
-
-		/// <summary>
-		/// This function is called when the MonoBehaviour will be destroyed.
-		/// </summary>
-		void OnDestroy ()
-		{
-			Instance = null;
-		}
 
 		/// <summary>
 		/// Opens the menu received as parameter by putting it on top of the menus

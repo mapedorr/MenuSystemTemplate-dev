@@ -13,12 +13,11 @@ namespace MenuSystem
 		/// </summary>
 		public void PauseGame ()
 		{
-			// TODO: pause the game
+			// pause the game (stop gameplay)
+			// Time.timeScale = 0;
+
 			// open the pause menu
-			if (MenuManager.Instance != null)
-			{
-				MenuManager.Instance.OpenMenu (PauseMenu.Instance);
-			}
+			PauseMenu.Open ();
 		}
 	}
 }

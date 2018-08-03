@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace MenuSystem
@@ -33,32 +32,23 @@ namespace MenuSystem
 
 		public void PlayGame ()
 		{
-			// TODO: remove the following line and use the level loader instead
-			SceneManager.LoadScene (1);
+			// load the next level in the build
+			LevelLoader.LoadNextLevel ();
 
 			// open the game menu
-			if (MenuManager.Instance != null)
-			{
-				MenuManager.Instance.OpenMenu (GameMenu.Instance);
-			}
+			GameMenu.Open ();
 		}
 
 		public void OpenSettings ()
 		{
 			// open the settings menu
-			if (MenuManager.Instance != null)
-			{
-				MenuManager.Instance.OpenMenu (SettingsMenu.Instance);
-			}
+			SettingsMenu.Open ();
 		}
 
 		public void OpenCredits ()
 		{
 			// open the credits menu
-			if (MenuManager.Instance != null)
-			{
-				MenuManager.Instance.OpenMenu (CreditsMenu.Instance);
-			}
+			CreditsMenu.Open ();
 		}
 
 		/// <summary>
