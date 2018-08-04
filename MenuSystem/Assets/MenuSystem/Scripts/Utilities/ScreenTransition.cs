@@ -24,7 +24,7 @@ namespace Utilities
 		{
 			// assign a value to _transitionTime non greater than 10 seconds and smaller
 			// than the duration of the fadings plus the delay
-			_transitionTime = Mathf.Clamp (_transitionTime, FadeOffDuration + FadeOnDuration + _delay, 10f);
+			_transitionTime = GetTransitionTime ();
 		}
 
 		/// <summary>
@@ -66,6 +66,11 @@ namespace Utilities
 				ScreenTransition st = Instantiate (screenTransitionPrefab, Vector3.zero, Quaternion.identity);
 				st.PlayTransition ();
 			}
+		}
+
+		public float GetTransitionTime ()
+		{
+			return Mathf.Clamp (_transitionTime, FadeOffDuration + FadeOnDuration + _delay, 10f);
 		}
 	}
 }

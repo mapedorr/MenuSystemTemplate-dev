@@ -42,8 +42,7 @@ namespace MenuSystem
 			// TODO: add a block of code for instancing the menu if there's no
 			// an instance of it
 
-			Debug.Log ("Main Menu instance " + MenuManager.Instance);
-			Debug.Log ("Menu instance " + Instance);
+			// open the menu
 			if (MenuManager.Instance != null && Instance != null)
 			{
 				MenuManager.Instance.OpenMenu (Instance);

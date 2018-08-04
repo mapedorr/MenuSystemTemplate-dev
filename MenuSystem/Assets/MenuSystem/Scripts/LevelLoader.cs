@@ -8,7 +8,7 @@ namespace MenuSystem
 	public class LevelLoader : MonoBehaviour
 	{
 		// ═══════════════════════════════════════════════════════════ PRIVATES ════
-		static int _mainMenuBuildIndex = 0;
+		static int _mainMenuBuildIndex = 1;
 
 		// ════════════════════════════════════════════════════════════ METHODS ════
 		/// <summary>
@@ -62,9 +62,11 @@ namespace MenuSystem
 			//            next level index to load will be the first scene in the build (0).
 			int nextLevelIndex = (SceneManager.GetActiveScene ().buildIndex + 1) %
 				SceneManager.sceneCountInBuildSettings;
-			// TODO: use the following line when the first scene in the build isn't the
-			//       main menu
-			// nextSceneIndex = Mathf.Clamp (nextSceneIndex, _mainMenuIndex, nextSceneIndex);
+			// use the following line when the first scene in the build isn't the
+			// main menu
+			nextLevelIndex = Mathf.Clamp (nextLevelIndex, _mainMenuBuildIndex, nextLevelIndex);
+
+			// load the appropiate level
 			LoadLevel (nextLevelIndex);
 		}
 	}
